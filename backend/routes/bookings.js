@@ -97,7 +97,7 @@ router.post("/book", authMiddleware, async (req, res) => {
 
   const booking = await Booking.create({
     ticketId: buildTicketId(),
-    userId: req.user.id,
+    userId: req.user._id,
     trainId: train._id,
     trainName: train.name,
     passengerName,
