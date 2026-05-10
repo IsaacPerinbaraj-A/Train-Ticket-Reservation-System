@@ -63,7 +63,7 @@ export default function RegisterPage() {
             <p className="text-sm font-medium uppercase text-brand-100">New Reservation Account</p>
             <h1 className="mt-4 text-4xl font-semibold leading-tight">Create your account and start booking in minutes.</h1>
             <p className="mt-4 max-w-lg text-sm leading-7 text-brand-50/90">
-              Register once, verify the email from the backend console link, and move into the full search and booking flow.
+              Register once and move straight into the full search and booking flow without an extra verification step.
             </p>
           </div>
           <div className="grid gap-3">
@@ -74,7 +74,7 @@ export default function RegisterPage() {
               Duplicate email registration is blocked automatically.
             </div>
             <div className="rounded-lg border border-white/20 bg-white/10 p-4 text-sm text-white/90">
-              Verification is simulated through a link printed in the backend terminal.
+              New accounts are ready to sign in as soon as registration is complete.
             </div>
           </div>
         </section>
@@ -85,7 +85,7 @@ export default function RegisterPage() {
               Back to home
             </Link>
             <h2 className="mt-4 text-2xl font-semibold text-slate-900">Create account</h2>
-            <p className="mt-2 text-sm text-slate-500">Register, then verify your email from the backend console log.</p>
+            <p className="mt-2 text-sm text-slate-500">Create your account and sign in right away.</p>
 
             <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
               <Alert type="success" message={message} />

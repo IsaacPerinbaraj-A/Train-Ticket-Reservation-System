@@ -18,7 +18,7 @@ const highlights = [
 ];
 
 const steps = [
-  "Create an account and verify your email.",
+  "Create an account and sign in immediately.",
   "Search trains by source, destination, and travel date.",
   "Pick a seat or use auto allocation to confirm your booking.",
   "Manage cancellations, refunds, and support tickets from your dashboard."
