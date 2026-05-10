@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -13,10 +14,12 @@ const supportRoutes = require("./routes/support");
 
 const app = express();
 const PORT = Number(process.env.PORT) || 5000;
+const publicPath = path.join(__dirname, "public");
 
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(express.static(publicPath));
 
 app.get("/", (_req, res) => {
   res.json({ message: "Train Ticket Reservation API is running." });
@@ -26,6 +29,15 @@ app.use("/api", authRoutes);
 app.use("/api", trainRoutes);
 app.use("/api", bookingRoutes);
 app.use("/api", supportRoutes);
+
+app.get(/^(?!\/api).*/, (req, res) => {
+  res.sendFile(path.join(publicPath, "index.html"), (err) => {
+    if (err) {
+      console.error("SPA fallback failed:", err);
+      res.status(500).send("An error occurred while serving the app.");
+    }
+  });
+});
 
 app.use((req, res) => {
   res.status(404).json({ message: `Route ${req.originalUrl} not found.` });
